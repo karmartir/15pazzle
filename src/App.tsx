@@ -6,10 +6,6 @@ const App: React.FC = () => {
 
     const initialTiles = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
-/*     const initialTiles = new Array(16)
-     for (let i = 0; i < initialTiles.length; i++) {
-         initialTiles[i] = i + 1;
-     }*/
     const [tiles, setTiles] = useState(initialTiles);
 
     //перемешивание игровых
@@ -70,11 +66,8 @@ const isGameComplete = (currentTiles: number[]) => {
 }
 
     return (
-        <div className="App">
-            <h1>15 Puzzle </h1>
-            <div>
-                <button onClick={ shuffledTiles } >Shuffle</button>
-            </div>
+        <div className="App" style={{textAlign: 'center'}}>
+            <h1 >15 Puzzle </h1>
 
 
             {/*передаем пропсы*/}
@@ -84,6 +77,9 @@ const isGameComplete = (currentTiles: number[]) => {
             />
 
 
+            <div style={{textAlign: "center", marginTop: '300px'}}>
+                <button onClick={ shuffledTiles } >Shuffle</button>
+            </div>
         </div>
     );
 }
