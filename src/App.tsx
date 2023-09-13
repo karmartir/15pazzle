@@ -4,13 +4,12 @@ import Board from "./Board";
 
 const App: React.FC = () => {
 
-    const initialTiles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    const initialTiles = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
-    /* const initialTiles = new Array(15)
+/*     const initialTiles = new Array(16)
      for (let i = 0; i < initialTiles.length; i++) {
          initialTiles[i] = i + 1;
-     }
- */
+     }*/
     const [tiles, setTiles] = useState(initialTiles);
 
     //перемешивание игровых
@@ -50,13 +49,13 @@ const App: React.FC = () => {
 
 const canMoveTile = (index: number) => {
     const emptyIndex = tiles.indexOf(0);
-    const row = Math.floor(emptyIndex/4);
+    const row = Math.floor(emptyIndex / 4);
 
     return (
-        (index === emptyIndex - 4 && row > 0) ||
-        (index === emptyIndex -4 && row < 3) ||
+        (index === emptyIndex -4 && row > 0) ||
+        (index === emptyIndex +4 && row < 3) ||
         (index === emptyIndex -1 && index % 4 !== 3) ||
-        (index === emptyIndex + 1 && index % 4 !== 0)
+        (index === emptyIndex +1 && index % 4 !== 0)
     )
 
 }
@@ -73,12 +72,18 @@ const isGameComplete = (currentTiles: number[]) => {
     return (
         <div className="App">
             <h1>15 Puzzle </h1>
-            <Board
+            <div>
+                <button onClick={ shuffledTiles } >Shuffle</button>
+            </div>
 
+
+            {/*передаем пропсы*/}
+            <Board
+                tiles={tiles}
+                onTileClick={handleTileClick}
             />
 
-            {/*onClick перемешать*/}
-            <button>Shuffle</button>
+
         </div>
     );
 }
