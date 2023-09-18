@@ -56,14 +56,15 @@ const canMoveTile = (index: number) => {
 
 }
 
-const isGameComplete = (currentTiles: number[]) => {
-        for(let i = 0; i < currentTiles.length -1; i++) {
-            if(currentTiles[i] !== i+1) {
+    const isGameComplete = (currentTiles: number[]) => {
+        for (let i = 0; i < currentTiles.length; i++) {
+            if (currentTiles[i] !== i + 1) {
                 return false;
             }
         }
-        return true
-}
+        return true;
+    };
+
 
     return (
         <div className="App" style={{textAlign: 'center'}}>
