@@ -4,7 +4,7 @@ import Board from "./Board";
 
 const App: React.FC = () => {
 
-    const initialTiles = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    const initialTiles = [1,5,9,13,2,6,10,14,3,7,11,15,4,8,12,0];
 
     const [tiles, setTiles] = useState(initialTiles);
 
@@ -67,8 +67,12 @@ const isGameComplete = (currentTiles: number[]) => {
 
     return (
         <div className="App" style={{textAlign: 'center'}}>
-            <h1 >15 Puzzle </h1>
+           <strong style={{fontSize: '4rem'}}>15 PUZZLE</strong>
 
+
+            <div style={{textAlign: "center", marginBottom: '30px'}}>
+                <button className='button'  onClick={ shuffledTiles } >Shuffle</button>
+            </div>
 
             {/*передаем пропсы*/}
             <Board
@@ -77,9 +81,6 @@ const isGameComplete = (currentTiles: number[]) => {
             />
 
 
-            <div style={{textAlign: "center", marginTop: '300px'}}>
-                <button onClick={ shuffledTiles } >Shuffle</button>
-            </div>
         </div>
     );
 }

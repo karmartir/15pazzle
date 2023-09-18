@@ -11,7 +11,8 @@ const Board: React.FC<BoardProps> = ({tiles, onTileClick}) => {
 
     const renderRow = (rowIndex: number) => {
         return (
-            <div key={rowIndex} className='board-row'>
+            <div key={rowIndex} className='board-row' >
+
 
                 {tiles.slice(rowIndex * 4, (rowIndex + 1) * 4).map((value, index) => (
                     <Tile
@@ -21,11 +22,12 @@ const Board: React.FC<BoardProps> = ({tiles, onTileClick}) => {
 
                     />
                 ))}
+
             </div>
         )
     }
 
-    return <div className='board'> {[0, 1, 2, 3].map(renderRow)} </div>
+    return <div className='board'> {[0, 1, 2, 3,].map(renderRow)} </div>
 
 };
 
